@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-// Kategorie i zdjęcia
 const categories = {
   malpy: [
     '/images/Maciek.png',
@@ -26,7 +25,6 @@ const categories = {
   ],
 };
 
-// Komponent pojedynczego obrazka
 function Car({ src, onClick }) {
   return (
     <img
@@ -34,17 +32,16 @@ function Car({ src, onClick }) {
       alt="Car"
       onClick={() => onClick(src)}
       style={{
-        width: '100px', // Miniatura
+        width: '100px',
         margin: '10px',
         borderRadius: '8px',
-        boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+        boxShadow: '0 4px 8px rgb(0, 0, 0)',
         cursor: 'pointer',
       }}
     />
   );
 }
 
-// Komponent powiększonego obrazka
 function Modal({ src, onClose }) {
   return (
     <div
@@ -54,7 +51,7 @@ function Modal({ src, onClose }) {
         left: 0,
         width: '100vw',
         height: '100vh',
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -63,10 +60,10 @@ function Modal({ src, onClose }) {
     >
       <img
         src={src}
-        alt="Expanded"
+        alt="Powiększone"
         style={{
-          width: '300px',  // Powiększona szerokość
-          height: '500px', // Powiększona wysokość
+          width: '300px',  
+          height: '500px',
           borderRadius: '8px',
         }}
       />
@@ -74,7 +71,6 @@ function Modal({ src, onClose }) {
   );
 }
 
-// Komponent główny z wyborem kategorii
 function Garage() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -113,9 +109,7 @@ function Garage() {
   );
 }
 
-// Renderowanie do DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Garage />);
 
-// Pomiar wydajności (opcjonalny)
 reportWebVitals();
